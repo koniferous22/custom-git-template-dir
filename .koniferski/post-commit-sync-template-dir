@@ -1,0 +1,21 @@
+#!/usr/bin/sh
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# !!! SCRIPT INITIALIZED FROM koniferski-template !!!
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# Importing custom functions
+source "$SHUTILS_PATH/lib/audio/asyncmp3"
+source "$SHUTILS_PATH/lib/fs/git-repos"
+source "$SHUTILS_PATH/lib/fs/config"
+
+project_path=$(realpath "$(dirname "$0")/..")
+asyncmp3 "$SOUNDBOARD_PATH/koniferski-template/post-commit-sync-template-dir.mp3"
+
+for target_repository in $(fs_git_repositories); do
+    rm "$target_repository/.git/hooks/"*
+    if ! cp "$project_path/hooks/"* "$target_repository/.git/hooks"; then
+        asyncmp3 "$SOUNDBOARD_PATH/koniferski-template/post-commit-sync-template-dir-error-cp-failed.mp3"
+        exit 1
+    fi
+done

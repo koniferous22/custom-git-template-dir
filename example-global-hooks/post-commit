@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+echo "Hello from global post-commit hook"

@@ -1,0 +1,13 @@
+#!/usr/bin/sh
+
+# COPIED FROM CUSTOM GIT TEMPLATE DIRECTORY - DON'T EDIT
+# Global hook trigger starts here
+hook=`basename "$0"`
+if [[ -x $GIT_GLOBAL_HOOKS_PATH/$hook ]]; then
+    # Passes absolute path of the invoked hook as arg
+    $GIT_GLOBAL_HOOKS_PATH/$hook "$(realpath $0)"
+fi
+
+# End of global hook trigger
+# Note - original template directory contents located at /usr/share/git-core/templates
+# TODO write your custom git hook here
