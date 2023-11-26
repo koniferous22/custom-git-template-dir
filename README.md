@@ -9,7 +9,7 @@ Template directory instead of producing local repository-specific git hooks, cal
 1. Clone this repository
 
     ```sh
-    git clone
+    git clone https://github.com/koniferous22/custom-git-template-dir.git
     ```
 
 2. Adjust env variables - **Remain** in same directory where you've executed `git clone` operation
